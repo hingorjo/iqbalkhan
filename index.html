@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/C:\Users\hingo\OneDrive\Desktop\portfolio/favicon.png">
+  <title>Iqbal Hingorjo | Web Developer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+    .hover-lift {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .hover-lift:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    .fade-in {
+      animation: fadeIn 1s ease-in-out;
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <!-- Navbar -->
+  <nav class="bg-white shadow p-4 fixed w-full top-0 z-50 fade-in">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <h1 class="text-xl font-bold text-blue-700">Iqbal Hingorjo</h1>
+      <div class="space-x-4">
+        <a href="#projects" class="hover:text-blue-600">Projects</a>
+        <a href="#courses" class="hover:text-blue-600">Courses</a>
+        <a href="#qualifications" class="hover:text-blue-600">Qualifications</a>
+        <a href="#skills" class="hover:text-blue-600">Skills</a>
+        <a href="#about" class="hover:text-blue-600">About</a>
+        <a href="#contact" class="hover:text-blue-600">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="pt-24 pb-16 text-center bg-gradient-to-r from-black via-gray-800 to-blue-900 text-white fade-in">
+    <h2 class="text-4xl font-bold mb-2 animate-pulse">Hi, I'm Iqbal Hingorjo</h2>
+    <p class="text-lg mb-4">Frontend Developer | Python Projects | WordPress Learner</p>
+    <a href="#projects" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-5 rounded-full transition duration-300">📁 View My Projects</a>
+  </section>
+
+   <section class="text-center py-8 bg-white fade-in">
+  <h3 class="text-xl font-semibold mb-4">Want to know more about me?</h3>
+  <a href="https://github.com/hingorjo/myresume/raw/main/Resume.pdf" download class="inline-block bg-black text-white px-6 py-3 rounded-full hover:bg-gray-800 transition duration-300">
+    📄 Download My Resume
+  </a>
+</section>
+
+
+
+  <!-- Projects Section -->
+  <section id="projects" class="max-w-6xl mx-auto px-4 py-12">
+    <h3 class="text-2xl font-bold text-center mb-8">My Projects</h3>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="bg-white p-5 rounded-lg hover-lift">
+        <h4 class="text-xl font-semibold mb-2">Face Emotion Detector</h4>
+        <p class="text-sm text-gray-600 mb-2">Detects emotions from webcam input using Python, OpenCV, and Tkinter. Displays emoji for each emotion in real time.</p>
+        <a href="https://github.com/hingorjo/Face-Emotion-Detector" target="_blank" class="text-blue-600 hover:underline">🔗 GitHub</a>
+      </div>
+      <div class="bg-white p-5 rounded-lg hover-lift">
+        <h4 class="text-xl font-semibold mb-2">Voice Assistant</h4>
+        <p class="text-sm text-gray-600 mb-2">Python-based voice assistant that responds to voice commands and performs basic tasks like opening apps and reading time.</p>
+        <a href="https://github.com/hingorjo/Voice-Assistant" target="_blank" class="text-blue-600 hover:underline">🔗 GitHub</a>
+      </div>
+      <div class="bg-white p-5 rounded-lg hover-lift">
+        <h4 class="text-xl font-semibold mb-2">Password Length Checker</h4>
+        <p class="text-sm text-gray-600 mb-2">Simple password strength checker that evaluates minimum length and basic complexity using Python.</p>
+        <a href="https://github.com/hingorjo/Password-Length-Checker" target="_blank" class="text-blue-600 hover:underline">🔗 GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Courses Section -->
+  <section id="courses" class="bg-gray-100 py-12 px-4">
+    <h3 class="text-2xl font-bold text-center mb-8">Completed Courses</h3>
+    <div class="max-w-3xl mx-auto space-y-4">
+      <div class="bg-white p-4 rounded shadow">
+        <h4 class="font-semibold">Google AI Essentials</h4>
+        <a href="https://github.com/hingorjo/courses/blob/main/Google%20AI%20Essentials.pdf?raw=true" download class="text-blue-600 hover:underline">⬇️ Download Certificate</a>
+      </div>
+      <div class="bg-white p-4 rounded shadow">
+        <h4 class="font-semibold">Programming the Internet of Things (IoT)</h4>
+        <a href="https://github.com/hingorjo/courses/blob/main/IoT.pdf?raw=true" download class="text-blue-600 hover:underline">⬇️ Download Certificate</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Qualifications Section -->
+  <section id="qualifications" class="py-12 px-4 bg-white">
+    <h3 class="text-2xl font-bold text-center mb-6">Qualifications</h3>
+    <div class="max-w-3xl mx-auto space-y-4 text-gray-700">
+      <div class="bg-gray-100 p-4 rounded shadow">
+        <h4 class="font-semibold">Matriculation</h4>
+        <p>Completed from Govt. Boys School, Hathungo</p>
+      </div>
+      <div class="bg-gray-100 p-4 rounded shadow">
+        <h4 class="font-semibold">Intermediate (Pre-Engineering)</h4>
+        <p>Completed from Govt. Boys Degree College, Khipro</p>
+      </div>
+      <div class="bg-gray-100 p-4 rounded shadow">
+        <h4 class="font-semibold">Diploma in Information System Management</h4>
+        <p>Completed from Aptech Hyderabad, Defence Branch</p>
+      </div>
+      <div class="bg-gray-100 p-4 rounded shadow">
+        <h4 class="font-semibold">BS Computer Science (Ongoing)</h4>
+        <p>Currently studying at Sindh Agriculture University, Tandojam</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="bg-white py-12 px-4">
+    <h3 class="text-2xl font-bold text-center mb-6">Skills</h3>
+    <div class="flex flex-wrap justify-center gap-4 text-sm text-white">
+      <span class="bg-blue-500 px-4 py-2 rounded-full">HTML</span>
+      <span class="bg-blue-500 px-4 py-2 rounded-full">CSS</span>
+      <span class="bg-blue-500 px-4 py-2 rounded-full">JavaScript</span>
+      <span class="bg-blue-500 px-4 py-2 rounded-full">Tailwind CSS</span>
+      <span class="bg-blue-500 px-4 py-2 rounded-full">Python</span>
+      <span class="bg-blue-500 px-4 py-2 rounded-full">Git & GitHub</span>
+      <span class="bg-blue-500 px-4 py-2 rounded-full">WordPress (Learning)</span>
+    </div>
+  </section>
+
+  <!-- About Me Section -->
+  <section id="about" class="py-12 px-4 bg-gray-50">
+    <h3 class="text-2xl font-bold text-center mb-6">About Me</h3>
+    <div class="max-w-3xl mx-auto text-center text-gray-700">
+      <p>
+        I'm a passionate web developer and computer science student with a focus on frontend technologies like HTML, CSS, JavaScript, and Tailwind CSS. I enjoy building clean, user-friendly interfaces and experimenting with Python projects. Currently, I'm learning WordPress and aiming to grow as a full-stack developer.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-12 px-4 text-center">
+    <h3 class="text-2xl font-bold mb-4">Let's Connect</h3>
+    <p class="mb-2">📞 0348-3942961</p>
+    <p class="mb-2">📧 hingorjoiqbal123@gmail.com</p>
+    <a href="https://www.linkedin.com/in/iqbal-hingorjo-aab10536a" target="_blank" class="text-blue-600 hover:underline">🔗 LinkedIn</a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black text-white text-center p-4">
+    &copy; 2025 Iqbal Hingorjo | Portfolio
+  </footer>
+</body>
+</html>

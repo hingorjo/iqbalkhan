@@ -10,63 +10,27 @@
   <meta name="keywords" content="Iqbal Hingorjo, web developer, frontend developer, AI enthusiast, portfolio, JavaScript, HTML, CSS, AI projects, GitHub portfolio, responsive web design, tech solutions">
   <meta name="author" content="Iqbal Hingorjo">
 
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://YOUR-GITHUB-PORTFOLIO-URL">
-  <meta property="og:title" content="Iqbal Hingorjo — Web Developer & AI Enthusiast">
-  <meta property="og:description" content="Portfolio of Iqbal Hingorjo — Frontend Developer, AI Enthusiast, and Creative Technologist. Check out my work in web design, AI, and innovative tech projects.">
-  <meta property="og:image" content="https://YOUR-SITE-IMAGE.jpg">
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://YOUR-GITHUB-PORTFOLIO-URL">
-  <meta name="twitter:title" content="Iqbal Hingorjo — Web Developer & AI Enthusiast">
-  <meta name="twitter:description" content="Explore my web development and AI projects.">
-  <meta name="twitter:image" content="https://YOUR-SITE-IMAGE.jpg">
-
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Iqbal Hingorjo",
-    "url": "https://YOUR-GITHUB-PORTFOLIO-URL",
-    "image": "https://YOUR-SITE-IMAGE.jpg",
-    "sameAs": [
-      "https://github.com/hingorjo",
-      "https://linkedin.com/in/iqbal-hingorjo-aab10536a"
-    ],
-    "jobTitle": "Frontend Developer & AI Enthusiast",
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Freelance"
-    }
-  }
-  </script>
-
-  <link rel="icon" type="image/png" href="favicon.png" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Dancing+Script:wght@400..700&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- AOS Animation Library -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
   <style>
     :root {
-      --primary: #3b82f6;
-      --primary-dark: #2563eb;
-      --secondary: #1e293b;
-      --accent: #f97316;
-      --light: #f8fafc;
-      --dark: #0f172a;
-      --gray: #64748b;
-      --light-gray: #e2e8f0;
+      --primary: #6C63FF;
+      --primary-dark: #564FD8;
+      --secondary: #2D2B55;
+      --accent: #FF6584;
+      --light: #F5F7FF;
+      --dark: #1A1A2E;
+      --gray: #7C7C7C;
+      --light-gray: #E8EAFF;
       --transition: all 0.3s ease;
     }
 
@@ -77,7 +41,7 @@
     }
 
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Libre Franklin', sans-serif;
       color: var(--dark);
       background-color: var(--light);
       line-height: 1.6;
@@ -97,13 +61,17 @@
     }
 
     section {
-      padding: 80px 0;
+      padding: 100px 0;
     }
 
     h1, h2, h3, h4, h5, h6 {
       font-weight: 700;
       line-height: 1.2;
       margin-bottom: 1rem;
+    }
+
+    h1, h2 {
+      font-family: 'Roboto Mono', monospace;
     }
 
     h2 {
@@ -141,28 +109,31 @@
 
     .btn {
       display: inline-block;
-      padding: 12px 28px;
+      padding: 14px 32px;
       background: var(--primary);
       color: white;
-      border-radius: 50px;
+      border-radius: 8px;
       font-weight: 600;
       transition: var(--transition);
       border: none;
       cursor: pointer;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      text-align: center;
+      box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+      font-family: 'Roboto Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.9rem;
     }
 
     .btn:hover {
       background: var(--primary-dark);
       transform: translateY(-3px);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 6px 20px rgba(108, 99, 255, 0.4);
     }
 
     .btn-outline {
       background: transparent;
       border: 2px solid var(--primary);
-      color: rgba(255, 255, 255, 0.95);
+      color: var(--primary);
     }
 
     .btn-outline:hover {
@@ -188,13 +159,13 @@
       z-index: 1000;
       padding: 20px 0;
       transition: var(--transition);
-      background: rgba(255, 255, 255, 0.95);
+      background: rgba(245, 247, 255, 0.95);
       backdrop-filter: blur(10px);
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     }
 
     body.dark-mode #navbar {
-      background: rgba(15, 23, 42, 0.95);
+      background: rgba(26, 26, 46, 0.95);
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     }
 
@@ -209,9 +180,10 @@
     }
 
     .logo {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       font-weight: 800;
       color: var(--primary);
+      font-family: 'Caveat', cursive;
     }
 
     .nav-links {
@@ -224,6 +196,8 @@
       color: var(--dark);
       font-weight: 500;
       position: relative;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 0.9rem;
     }
 
     body.dark-mode .nav-links a {
@@ -277,7 +251,7 @@
       min-height: 100vh;
       display: flex;
       align-items: center;
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
       color: white;
       position: relative;
       overflow: hidden;
@@ -305,17 +279,20 @@
     }
 
     .hero-title {
-      font-size: 3.5rem;
+      font-size: 4rem;
       font-weight: 800;
       margin-bottom: 1.5rem;
       animation: fadeInDown 1s ease;
+      font-family: 'Roboto Mono', monospace;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     }
 
     .hero-subtitle {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       font-weight: 400;
       margin-bottom: 2.5rem;
       animation: fadeInUp 1s ease;
+      font-family: 'Dancing Script', cursive;
     }
 
     .hero-buttons {
@@ -329,6 +306,17 @@
     /* About Section */
     #about {
       background-color: var(--light);
+      position: relative;
+    }
+
+    #about:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%236C63FF' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
     }
 
     body.dark-mode #about {
@@ -340,6 +328,8 @@
       grid-template-columns: 1fr 2fr;
       gap: 4rem;
       align-items: center;
+      position: relative;
+      z-index: 1;
     }
 
     .about-img {
@@ -352,31 +342,23 @@
       max-width: 350px;
       border-radius: 20px;
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    }
-
-    .about-img:after {
-      content: '';
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      right: -20px;
-      bottom: -20px;
-      border: 3px solid var(--primary);
-      border-radius: 20px;
-      z-index: -1;
+      border: 5px solid var(--primary);
     }
 
     .about-content h3 {
-      font-size: 2rem;
+      font-size: 2.2rem;
       margin-bottom: 1.5rem;
       color: var(--primary);
-      text-align: center;
+      text-align: left;
+      font-family: 'Roboto Mono', monospace;
     }
 
     .about-text {
       margin-bottom: 2rem;
       color: var(--gray);
       text-align: justify;
+      font-size: 1.1rem;
+      line-height: 1.8;
     }
 
     body.dark-mode .about-text {
@@ -385,7 +367,8 @@
 
     /* Projects Section */
     #projects {
-      background-color: #f8fafc;
+      background-color: var(--secondary);
+      color: white;
     }
 
     body.dark-mode #projects {
@@ -399,27 +382,29 @@
     }
 
     .project-card {
-      background: white;
+      background: rgba(255, 255, 255, 0.1);
       border-radius: 15px;
       overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
       transition: var(--transition);
       text-align: center;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     body.dark-mode .project-card {
-      background: #1e293b;
+      background: rgba(255, 255, 255, 0.05);
     }
 
     .project-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
     }
 
     .project-img {
       height: 200px;
       width: 100%;
-      background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+      background: linear-gradient(45deg, var(--primary), var(--accent));
       display: flex;
       align-items: center;
       justify-content: center;
@@ -434,10 +419,11 @@
     .project-title {
       font-size: 1.25rem;
       margin-bottom: 0.75rem;
+      font-family: 'Roboto Mono', monospace;
     }
 
     .project-description {
-      color: var(--gray);
+      color: rgba(255, 255, 255, 0.8);
       margin-bottom: 1.5rem;
       font-size: 0.95rem;
     }
@@ -452,6 +438,15 @@
       gap: 0.5rem;
       font-weight: 600;
       justify-content: center;
+      color: white;
+      background: var(--accent);
+      padding: 8px 16px;
+      border-radius: 5px;
+    }
+
+    .project-link:hover {
+      background: #ff4d6d;
+      color: white;
     }
 
     /* Courses Section */
@@ -481,6 +476,7 @@
       text-align: center;
       flex-direction: column;
       gap: 1rem;
+      border-left: 5px solid var(--primary);
     }
 
     body.dark-mode .course-item {
@@ -494,20 +490,34 @@
 
     .course-title {
       font-weight: 600;
+      font-family: 'Roboto Mono', monospace;
     }
 
     /* Qualifications Section */
     #qualifications {
-      background-color: #f8fafc;
+      background-color: var(--light);
+      position: relative;
+    }
+
+    #qualifications:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%236C63FF' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
     }
 
     body.dark-mode #qualifications {
-      background-color: #0f172a;
+      background-color: var(--dark);
     }
 
     .qualifications-container {
       max-width: 800px;
       margin: 0 auto;
+      position: relative;
+      z-index: 1;
     }
 
     .qualification-item {
@@ -545,6 +555,7 @@
     .qualification-title {
       font-weight: 700;
       margin-bottom: 0.5rem;
+      font-family: 'Roboto Mono', monospace;
     }
 
     .qualification-details {
@@ -572,6 +583,7 @@
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
       transition: var(--transition);
       text-align: center;
+      border-left: 5px solid var(--accent);
     }
 
     body.dark-mode .experience-item {
@@ -595,6 +607,7 @@
     .experience-title {
       font-size: 1.25rem;
       color: var(--primary);
+      font-family: 'Roboto Mono', monospace;
     }
 
     .experience-date {
@@ -609,6 +622,7 @@
     .experience-company {
       font-weight: 600;
       margin-bottom: 0.5rem;
+      font-family: 'Roboto Mono', monospace;
     }
 
     .experience-description {
@@ -621,7 +635,8 @@
 
     /* Skills Section */
     #skills {
-      background-color: #f8fafc;
+      background-color: var(--secondary);
+      color: white;
     }
 
     body.dark-mode #skills {
@@ -635,22 +650,25 @@
     }
 
     .skill-category {
-      background: white;
+      background: rgba(255, 255, 255, 0.1);
       border-radius: 15px;
       padding: 1.5rem;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
       text-align: center;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     body.dark-mode .skill-category {
-      background: #1e293b;
+      background: rgba(255, 255, 255, 0.05);
     }
 
     .skill-title {
       font-size: 1.25rem;
-      color: var(--primary);
+      color: var(--accent);
       margin-bottom: 1.5rem;
       text-align: center;
+      font-family: 'Roboto Mono', monospace;
     }
 
     .skill-tags {
@@ -661,8 +679,8 @@
     }
 
     .skill-tag {
-      background: var(--light-gray);
-      color: var(--dark);
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
       padding: 0.5rem 1rem;
       border-radius: 50px;
       font-weight: 500;
@@ -676,14 +694,14 @@
     }
 
     .skill-tag:hover {
-      background: var(--primary);
+      background: var(--accent);
       color: white;
       transform: translateY(-2px);
     }
 
     /* Contact Section */
     #contact {
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
       color: white;
       text-align: center;
     }
@@ -710,6 +728,13 @@
     .contact-icon {
       font-size: 2rem;
       margin-bottom: 0.5rem;
+      background: rgba(255, 255, 255, 0.1);
+      width: 70px;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
     }
 
     .contact-links {
@@ -743,6 +768,7 @@
       color: white;
       text-align: center;
       padding: 2rem 0;
+      font-family: 'Roboto Mono', monospace;
     }
 
     /* Animations */
@@ -786,7 +812,7 @@
       }
 
       .hero-title {
-        font-size: 2.8rem;
+        font-size: 3rem;
       }
     }
 
@@ -821,11 +847,11 @@
       }
 
       .hero-title {
-        font-size: 2.2rem;
+        font-size: 2.5rem;
       }
 
       .hero-subtitle {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
       }
 
       .hero-buttons {
@@ -835,7 +861,7 @@
       }
 
       section {
-        padding: 60px 0;
+        padding: 80px 0;
       }
 
       h2 {
@@ -844,6 +870,7 @@
       
       .about-content h3 {
         font-size: 1.8rem;
+        text-align: center;
       }
       
       .projects-grid {
@@ -886,11 +913,11 @@
       }
       
       .hero-title {
-        font-size: 2rem;
+        font-size: 2.2rem;
       }
       
       .hero-subtitle {
-        font-size: 1.1rem;
+        font-size: 1.3rem;
       }
       
       h2 {
@@ -908,7 +935,7 @@
       }
       
       .btn {
-        padding: 10px 20px;
+        padding: 12px 24px;
         font-size: 0.9rem;
       }
     }
@@ -918,7 +945,7 @@
   <!-- Navbar -->
   <nav id="navbar">
     <div class="container nav-container">
-      <a href="#" class="logo">Iqbal<span style="color: #3b82f6;">.</span></a>
+      <a href="#" class="logo">Iqbal<span style="color: #6C63FF;">.</span></a>
       
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
@@ -957,7 +984,10 @@
       <h2 class="section-title" data-aos="fade-up">About Me</h2>
       <div class="about-container">
         <div class="about-img" data-aos="fade-right">
-          <img src="me.jpeg" alt="Iqbal Hingorjo - Web Developer">
+          <!-- Placeholder for image -->
+          <div style="width:100%; height:400px; background:linear-gradient(45deg, #6C63FF, #FF6584); border-radius:20px; display:flex; align-items:center; justify-content:center; color:white; font-size:5rem;">
+            <i class="fas fa-user"></i>
+          </div>
         </div>
         <div class="about-content" data-aos="fade-left">
           <h3>Creating Digital Experiences That Matter</h3>

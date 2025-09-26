@@ -969,17 +969,164 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section id="hero">
-    <div class="container hero-content">
-      <h1 class="hero-title" data-aos="fade-down">Iqbal Hingorjo</h1>
-      <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">Frontend Developer & AI Enthusiast</p>
-      <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
-        <a href="#projects" class="btn">View My Work</a>
-        <a href="#contact" class="btn btn-outline">Contact Me</a>
-      </div>
+<!-- Contact Modal -->
+<div id="contactModal" class="modal">
+  <div class="modal-overlay"></div>
+  <div class="modal-content">
+    <span class="close" id="closeModal">&times;</span>
+    <h2>Contact Me</h2>
+    <form id="contactForm">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</div>
+
+<!-- Hero Section -->
+<section id="hero">
+  <div class="container hero-content">
+    <h1 class="hero-title" data-aos="fade-down">Iqbal Hingorjo</h1>
+    <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
+      Frontend Developer & AI Enthusiast
+    </p>
+    <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
+      <a href="#projects" class="btn">View My Work</a>
+      <button class="btn btn-outline" id="heroContactBtn">Contact Me</button>
     </div>
-  </section>
+  </div>
+</section>
+
+<style>
+  /* Modal Styles */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(3px);
+  }
+
+  .modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    z-index: 1001;
+    margin: 10% auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: modalFadeIn 0.3s ease-out;
+  }
+
+  @keyframes modalFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .close {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #666;
+    transition: color 0.3s;
+  }
+
+  .close:hover {
+    color: #000;
+  }
+
+  #contactForm input, #contactForm textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+  }
+
+  #contactForm textarea {
+    height: 120px;
+    resize: vertical;
+  }
+
+  #contactForm button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+  }
+
+  #contactForm button:hover {
+    background-color: #0056b3;
+  }
+</style>
+
+<script>
+  // Get elements
+  const heroContactBtn = document.getElementById("heroContactBtn");
+  const contactModal = document.getElementById("contactModal");
+  const closeModal = document.getElementById("closeModal");
+  const modalOverlay = document.querySelector('.modal-overlay');
+
+  // Open modal on hero button click
+  heroContactBtn.addEventListener("click", () => {
+    contactModal.style.display = "block";
+  });
+
+  // Close modal when clicking "x"
+  closeModal.addEventListener("click", () => {
+    contactModal.style.display = "none";
+  });
+
+  // Close modal when clicking overlay
+  modalOverlay.addEventListener("click", () => {
+    contactModal.style.display = "none";
+  });
+
+  // Close modal if user clicks outside the modal box (alternative method)
+  window.addEventListener("click", (e) => {
+    if (e.target === contactModal) {
+      contactModal.style.display = "none";
+    }
+  });
+
+  // Close modal with Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && contactModal.style.display === 'block') {
+      contactModal.style.display = 'none';
+    }
+  });
+</script>
+
 
   <!-- About Section -->
   <section id="about">

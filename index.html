@@ -10,6 +10,13 @@
   <meta name="keywords" content="Iqbal Hingorjo, web developer, frontend developer, AI enthusiast, portfolio, JavaScript, HTML, CSS, AI projects, GitHub portfolio, responsive web design, tech solutions">
   <meta name="author" content="Iqbal Hingorjo">
 
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Iqbal Hingorjo - Web Developer & AI Enthusiast">
+  <meta property="og:description" content="Portfolio of Iqbal Hingorjo - Frontend Developer & AI Enthusiast">
+  <meta property="og:image" content="me.jpeg">
+  <meta property="og:url" content="https://hingorjo.github.io">
+  <meta property="og:type" content="website">
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,6 +27,9 @@
 
   <!-- AOS Animation Library -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json">
 
   <style>
     :root {
@@ -148,6 +158,37 @@
 
     .text-center {
       text-align: center;
+    }
+
+    /* Loading Spinner */
+    .loading-spinner {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    body.dark-mode .loading-spinner {
+      background: rgba(26, 26, 46, 0.9);
+    }
+
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid rgba(108, 99, 255, 0.3);
+      border-radius: 50%;
+      border-top-color: var(--primary);
+      animation: spin 1s ease-in-out infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
     }
 
     /* Navbar */
@@ -354,15 +395,57 @@
     }
 
     .about-text {
-    margin-bottom: 2rem;
-    color: var(--gray);
-    text-align: center;
-    font-size: 1.1rem;
-    line-height: 1.8;
-}
+      margin-bottom: 2rem;
+      color: var(--gray);
+      text-align: center;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
 
     body.dark-mode .about-text {
       color: var(--light-gray);
+    }
+
+    /* Skills Progress Bars */
+    .skills-progress {
+      margin-top: 2rem;
+    }
+
+    .skill-item {
+      margin-bottom: 1.5rem;
+    }
+
+    .skill-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+    }
+
+    .skill-name {
+      font-weight: 600;
+    }
+
+    .skill-percentage {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .progress-bar {
+      height: 8px;
+      background: var(--light-gray);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    body.dark-mode .progress-bar {
+      background: #2D3748;
+    }
+
+    .progress {
+      height: 100%;
+      background: var(--primary);
+      border-radius: 4px;
+      transition: width 1.5s ease-in-out;
     }
 
     /* Projects Section */
@@ -382,17 +465,16 @@
     }
 
     .project-card {       
-  background: rgba(255, 255, 255, 0.1);       
-  border-radius: 15px;       
-  overflow: hidden;       
-  margin: 10%;       
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);       
-  transition: var(--transition);       
-  text-align: center;       
-  backdrop-filter: blur(10px);       
-  border: 1px solid rgba(255, 255, 255, 0.1);     
-}
-
+      background: rgba(255, 255, 255, 0.1);       
+      border-radius: 15px;       
+      overflow: hidden;       
+      margin: 10%;       
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);       
+      transition: var(--transition);       
+      text-align: center;       
+      backdrop-filter: blur(10px);       
+      border: 1px solid rgba(255, 255, 255, 0.1);     
+    }
 
     body.dark-mode .project-card {
       background: rgba(255, 255, 255, 0.05);
@@ -433,6 +515,28 @@
 
     body.dark-mode .project-description {
       color: var(--light-gray);
+    }
+
+    .project-metrics {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .metric {
+      text-align: center;
+    }
+
+    .metric-value {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--accent);
+    }
+
+    .metric-label {
+      font-size: 0.8rem;
+      opacity: 0.8;
     }
 
     .project-link {
@@ -492,6 +596,200 @@
     }
 
     .course-title {
+      font-weight: 600;
+      font-family: 'Roboto Mono', monospace;
+    }
+
+    /* Testimonials Section */
+    #testimonials {
+      background-color: var(--light);
+    }
+
+    body.dark-mode #testimonials {
+      background-color: var(--dark);
+    }
+
+    .testimonials-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .testimonial-card {
+      background: white;
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      transition: var(--transition);
+      text-align: center;
+    }
+
+    body.dark-mode .testimonial-card {
+      background: #1e293b;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .testimonial-text {
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .testimonial-text:before,
+    .testimonial-text:after {
+      content: '"';
+      font-size: 3rem;
+      color: var(--primary);
+      opacity: 0.3;
+      position: absolute;
+    }
+
+    .testimonial-text:before {
+      top: -20px;
+      left: -10px;
+    }
+
+    .testimonial-text:after {
+      bottom: -40px;
+      right: -10px;
+    }
+
+    .testimonial-author {
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .testimonial-role {
+      font-size: 0.9rem;
+      color: var(--gray);
+    }
+
+    body.dark-mode .testimonial-role {
+      color: var(--light-gray);
+    }
+
+    /* Blog Section */
+    #blog {
+      background-color: var(--secondary);
+      color: white;
+    }
+
+    body.dark-mode #blog {
+      background-color: #0f172a;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .blog-card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      overflow: hidden;
+      transition: var(--transition);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    body.dark-mode .blog-card {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .blog-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .blog-img {
+      height: 200px;
+      background: linear-gradient(45deg, var(--primary), var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 3rem;
+    }
+
+    .blog-content {
+      padding: 1.5rem;
+    }
+
+    .blog-title {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+      font-family: 'Roboto Mono', monospace;
+    }
+
+    .blog-excerpt {
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    body.dark-mode .blog-excerpt {
+      color: var(--light-gray);
+    }
+
+    .blog-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      color: white;
+    }
+
+    .blog-link:hover {
+      color: var(--accent);
+    }
+
+    /* Currently Learning Section */
+    #learning {
+      background-color: var(--light);
+    }
+
+    body.dark-mode #learning {
+      background-color: var(--dark);
+    }
+
+    .learning-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .learning-item {
+      background: white;
+      border-radius: 10px;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+      width: 150px;
+    }
+
+    body.dark-mode .learning-item {
+      background: #1e293b;
+    }
+
+    .learning-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .learning-icon {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .learning-name {
       font-weight: 600;
       font-family: 'Roboto Mono', monospace;
     }
@@ -647,7 +945,7 @@
     }
 
     .skills-container {
-      display: flex;
+      display: grid;
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       gap: 2rem;
     }
@@ -700,6 +998,42 @@
       background: var(--accent);
       color: white;
       transform: translateY(-2px);
+    }
+
+    /* Stats Section */
+    #stats {
+      background-color: var(--light);
+    }
+
+    body.dark-mode #stats {
+      background-color: var(--dark);
+    }
+
+    .stats-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 1.1rem;
+      color: var(--gray);
+    }
+
+    body.dark-mode .stat-label {
+      color: var(--light-gray);
     }
 
     /* Contact Section */
@@ -772,6 +1106,112 @@
       text-align: center;
       padding: 2rem 0;
       font-family: 'Roboto Mono', monospace;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .modal-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(3px);
+    }
+
+    .modal-content {
+      background-color: white;
+      padding: 30px;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 500px;
+      position: relative;
+      z-index: 1001;
+      margin: 10% auto;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      animation: modalFadeIn 0.3s ease-out;
+    }
+
+    body.dark-mode .modal-content {
+      background-color: var(--dark);
+      color: var(--light);
+    }
+
+    @keyframes modalFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .close {
+      position: absolute;
+      right: 20px;
+      top: 15px;
+      font-size: 28px;
+      cursor: pointer;
+      color: #666;
+      transition: color 0.3s;
+    }
+
+    .close:hover {
+      color: #000;
+    }
+
+    body.dark-mode .close:hover {
+      color: #fff;
+    }
+
+    #contactForm input, #contactForm textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    body.dark-mode #contactForm input,
+    body.dark-mode #contactForm textarea {
+      background-color: #2D3748;
+      border-color: #4A5568;
+      color: white;
+    }
+
+    #contactForm textarea {
+      height: 120px;
+      resize: vertical;
+    }
+
+    #contactForm button {
+      background-color: var(--primary);
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      width: 100%;
+      margin-top: 10px;
+      transition: background-color 0.3s;
+    }
+
+    #contactForm button:hover {
+      background-color: var(--primary-dark);
     }
 
     /* Animations */
@@ -908,6 +1348,18 @@
       .contact-info {
         grid-template-columns: 1fr;
       }
+
+      .stats-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .testimonials-container {
+        grid-template-columns: 1fr;
+      }
+
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 576px) {
@@ -941,10 +1393,20 @@
         padding: 12px 24px;
         font-size: 0.9rem;
       }
+
+      .stats-container {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- Loading Spinner -->
+  <div class="loading-spinner" id="loadingSpinner">
+    <div class="spinner"></div>
+    <p>Loading...</p>
+  </div>
+
   <!-- Navbar -->
   <nav id="navbar">
     <div class="container nav-container">
@@ -956,6 +1418,7 @@
         <li><a href="#experience">Experience</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#qualifications">Education</a></li>
+        <li><a href="#blog">Blog</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       
@@ -969,164 +1432,58 @@
     </div>
   </nav>
 
-<!-- Contact Modal -->
-<div id="contactModal" class="modal">
-  <div class="modal-overlay"></div>
-  <div class="modal-content">
-    <span class="close" id="closeModal">&times;</span>
-    <h2>Contact Me</h2>
-    <form id="contactForm">
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </div>
-</div>
-
-<!-- Hero Section -->
-<section id="hero">
-  <div class="container hero-content">
-    <h1 class="hero-title" data-aos="fade-down">Iqbal Hingorjo</h1>
-    <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
-      Frontend Developer & AI Enthusiast
-    </p>
-    <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
-      <a href="#projects" class="btn">View My Work</a>
-      <button class="btn btn-outline" id="heroContactBtn">Contact Me</button>
+  <!-- Contact Modal -->
+  <div id="contactModal" class="modal">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+      <span class="close" id="closeModal">&times;</span>
+      <h2>Contact Me</h2>
+      <form id="contactForm">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
     </div>
   </div>
-</section>
 
-<style>
-  /* Modal Styles */
-  .modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-  }
+  <!-- Hero Section -->
+  <section id="hero">
+    <div class="container hero-content">
+      <h1 class="hero-title" data-aos="fade-down">Iqbal Hingorjo</h1>
+      <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
+        Frontend Developer & AI Enthusiast
+      </p>
+      <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
+        <a href="#projects" class="btn">View My Work</a>
+        <button class="btn btn-outline" id="heroContactBtn">Contact Me</button>
+      </div>
+    </div>
+  </section>
 
-  .modal-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(3px);
-  }
-
-  .modal-content {
-    background-color: white;
-    padding: 30px;
-    border-radius: 12px;
-    width: 90%;
-    max-width: 500px;
-    position: relative;
-    z-index: 1001;
-    margin: 10% auto;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    animation: modalFadeIn 0.3s ease-out;
-  }
-
-  @keyframes modalFadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(-50px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .close {
-    position: absolute;
-    right: 20px;
-    top: 15px;
-    font-size: 28px;
-    cursor: pointer;
-    color: #666;
-    transition: color 0.3s;
-  }
-
-  .close:hover {
-    color: #000;
-  }
-
-  #contactForm input, #contactForm textarea {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    font-size: 16px;
-  }
-
-  #contactForm textarea {
-    height: 120px;
-    resize: vertical;
-  }
-
-  #contactForm button {
-    background-color: #007bff;
-    color: white;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 16px;
-    width: 100%;
-    margin-top: 10px;
-    transition: background-color 0.3s;
-  }
-
-  #contactForm button:hover {
-    background-color: #0056b3;
-  }
-</style>
-
-<script>
-  // Get elements
-  const heroContactBtn = document.getElementById("heroContactBtn");
-  const contactModal = document.getElementById("contactModal");
-  const closeModal = document.getElementById("closeModal");
-  const modalOverlay = document.querySelector('.modal-overlay');
-
-  // Open modal on hero button click
-  heroContactBtn.addEventListener("click", () => {
-    contactModal.style.display = "block";
-  });
-
-  // Close modal when clicking "x"
-  closeModal.addEventListener("click", () => {
-    contactModal.style.display = "none";
-  });
-
-  // Close modal when clicking overlay
-  modalOverlay.addEventListener("click", () => {
-    contactModal.style.display = "none";
-  });
-
-  // Close modal if user clicks outside the modal box (alternative method)
-  window.addEventListener("click", (e) => {
-    if (e.target === contactModal) {
-      contactModal.style.display = "none";
-    }
-  });
-
-  // Close modal with Escape key
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && contactModal.style.display === 'block') {
-      contactModal.style.display = 'none';
-    }
-  });
-</script>
-
+  <!-- Stats Section -->
+  <section id="stats">
+    <div class="container">
+      <div class="stats-container">
+        <div class="stat-item" data-aos="fade-up">
+          <div class="stat-number" id="projectCount">5+</div>
+          <div class="stat-label">Projects Completed</div>
+        </div>
+        <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+          <div class="stat-number" id="clientCount">5+</div>
+          <div class="stat-label">Happy Clients</div>
+        </div>
+        <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+          <div class="stat-number" id="experienceCount">2+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+          <div class="stat-number" id="certificateCount">5+</div>
+          <div class="stat-label">Certificates</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- About Section -->
   <section id="about">
@@ -1134,11 +1491,7 @@
       <h2 class="section-title" data-aos="fade-up">About Me</h2>
       <div class="about-container">
         <div class="about-img" data-aos="fade-right">
-          <!-- Placeholder for image -->
-        
-  <img src="me.jpeg" alt="User Image">
-
-
+          <img src="me.jpeg" alt="Iqbal Hingorjo - Web Developer">
         </div>
         <div class="about-content" data-aos="fade-left">
           <h3>Creating Digital Experiences That Matter</h3>
@@ -1148,7 +1501,38 @@
           <p class="about-text">
             My journey in technology started with a curiosity about how digital systems work, and it has evolved into a passion for creating solutions that make a difference. I believe in continuous learning and pushing the boundaries of what's possible with code.
           </p>
-          <div class="text-center">
+          
+          <div class="skills-progress">
+            <div class="skill-item" data-aos="fade-up">
+              <div class="skill-header">
+                <span class="skill-name">HTML/CSS</span>
+                <span class="skill-percentage">90%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress" data-width="90"></div>
+              </div>
+            </div>
+            <div class="skill-item" data-aos="fade-up" data-aos-delay="100">
+              <div class="skill-header">
+                <span class="skill-name">JavaScript</span>
+                <span class="skill-percentage">80%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress" data-width="80"></div>
+              </div>
+            </div>
+            <div class="skill-item" data-aos="fade-up" data-aos-delay="200">
+              <div class="skill-header">
+                <span class="skill-name">Python</span>
+                <span class="skill-percentage">75%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress" data-width="75"></div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="text-center" style="margin-top: 2rem;">
             <a href="iqbal khan.pdf" download class="btn">Download Resume</a>
           </div>
         </div>
@@ -1168,6 +1552,14 @@
           <div class="project-content">
             <h3 class="project-title">Face Emotion Detector</h3>
             <p class="project-description">Detects emotions from webcam input using Python, OpenCV, and Tkinter. Displays emoji for each emotion in real time.</p>
+            
+            <div class="project-metrics">
+              <div class="metric">
+                <div class="metric-value">Python</div>
+                <div class="metric-label">Technology</div>
+              </div>
+            </div>
+            
             <a href="https://github.com/hingorjo/Face-Emotion-Detector" target="_blank" class="project-link">
               View Project <i class="fas fa-arrow-right"></i>
             </a>
@@ -1181,6 +1573,14 @@
           <div class="project-content">
             <h3 class="project-title">Voice Assistant</h3>
             <p class="project-description">Python-based voice assistant that responds to voice commands and performs basic tasks like opening apps and reading time.</p>
+            
+            <div class="project-metrics">
+              <div class="metric">
+                <div class="metric-value">Python</div>
+                <div class="metric-label">Technology</div>
+              </div>
+            </div>
+            
             <a href="https://github.com/hingorjo/Voice-Assistant" target="_blank" class="project-link">
               View Project <i class="fas fa-arrow-right"></i>
             </a>
@@ -1194,6 +1594,14 @@
           <div class="project-content">
             <h3 class="project-title">Password Length Checker</h3>
             <p class="project-description">Simple password strength checker that evaluates minimum length and basic complexity using Python.</p>
+            
+            <div class="project-metrics">
+              <div class="metric">
+                <div class="metric-value">Python</div>
+                <div class="metric-label">Technology</div>
+              </div>
+            </div>
+            
             <a href="https://github.com/hingorjo/Password-Length-Checker" target="_blank" class="project-link">
               View Project <i class="fas fa-arrow-right"></i>
             </a>
@@ -1207,28 +1615,62 @@
           <div class="project-content">
             <h3 class="project-title">Portfolio</h3>
             <p class="project-description">A professional portfolio website built for Dr. Sultan Shaikh, CEO of Tekgen Technical Institute in Hyderabad.</p>
+            
+            <div class="project-metrics">
+              <div class="metric">
+                <div class="metric-value">HTML/CSS/JS</div>
+                <div class="metric-label">Technology</div>
+              </div>
+            </div>
+            
             <a href="https://github.com/hingorjo/sultan-shaikh" target="_blank" class="project-link">
               View Project <i class="fas fa-arrow-right"></i>
             </a>
           </div>
         </div>
 
- <div class="project-card" data-aos="fade-up" data-aos-delay="500">
-  <div class="project-img">
-    <i class="fas fa-briefcase"></i>
-  </div>
-  <div class="project-content">
-    <h3 class="project-title">Dr. Sultan Shaikh Proposal Website</h3>
-    <p class="project-description">
-      A responsive and elegant proposal website designed for Dr. Sultan Shaikh, CEO of Tekgen Technical Institute, showcasing sustainable aquaculture research and digital project presentations.
-    </p>
-    <a href="https://hingorjo.github.io/Project/" target="_blank" class="project-link">
-      View Project <i class="fas fa-arrow-right"></i>
-    </a>
-  </div>
-</div>
+        <div class="project-card" data-aos="fade-up" data-aos-delay="600">
+          <div class="project-img">
+            <i class="fas fa-briefcase"></i>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Dr. Sultan Shaikh Proposal Website</h3>
+            <p class="project-description">
+              A responsive and elegant proposal website designed for Dr. Sultan Shaikh, CEO of Tekgen Technical Institute, showcasing sustainable aquaculture research and digital project presentations.
+            </p>
+            
+            <div class="project-metrics">
+              <div class="metric">
+                <div class="metric-value">HTML/CSS/JS</div>
+                <div class="metric-label">Technology</div>
+              </div>
+             
+            </div>
+            
+            <a href="https://hingorjo.github.io/Project/" target="_blank" class="project-link">
+              View Project <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        
+  <!-- Testimonials Section -->
+  <section id="testimonials">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Testimonials</h2>
+      <div class="testimonials-container">
+        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+          <p class="testimonial-text">Iqbal demonstrated exceptional skills during his internship at Tekgen. His attention to detail and problem-solving abilities were impressive.</p>
+          <h4 class="testimonial-author">Dr. Sultan Shaikh</h4>
+          <p class="testimonial-role">CEO, Tekgen Technical Institute</p>
+        </div>
+        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+          <p class="testimonial-text">Working with Iqbal was a great experience. He delivered high-quality code and was always willing to go the extra mile.</p>
+          <h4 class="testimonial-author">John Doe</h4>
+          <p class="testimonial-role">Project Manager, Tech Solutions</p>
+        </div>
       </div>
     </div>
   </section>
@@ -1249,6 +1691,83 @@
       </div>
     </div>
   </section>
+
+  <!-- Currently Learning Section -->
+  <section id="learning">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Currently Learning</h2>
+      <div class="learning-container">
+        <div class="learning-item" data-aos="fade-up" data-aos-delay="200">
+          <div class="learning-icon">
+            <i class="fab fa-react"></i>
+          </div>
+          <div class="learning-name">React</div>
+        </div>
+        <div class="learning-item" data-aos="fade-up" data-aos-delay="300">
+          <div class="learning-icon">
+            <i class="fab fa-node-js"></i>
+          </div>
+          <div class="learning-name">Node.js</div>
+        </div>
+        <div class="learning-item" data-aos="fade-up" data-aos-delay="400">
+          <div class="learning-icon">
+            <i class="fab fa-wordpress"></i>
+          </div>
+          <div class="learning-name">WordPress</div>
+        </div>
+        <div class="learning-item" data-aos="fade-up" data-aos-delay="500">
+          <div class="learning-icon">
+            <i class="fas fa-database"></i>
+          </div>
+          <div class="learning-name">MongoDB</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Blog Section -->
+<section id="blog">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">Latest Articles</h2>
+    <div class="coming-soon-container" data-aos="fade-up" data-aos-delay="200">
+      <div class="coming-soon-icon">
+        <i class="fas fa-pencil-alt"></i>
+      </div>
+      <h3>Blog Coming Soon</h3>
+      <p>I'm currently working on some exciting articles about web development, AI, and technology.</p>
+      <p>Check back later for insightful content!</p>
+    </div>
+  </div>
+</section>
+<style>
+  /* Coming Soon Container */
+.coming-soon-container {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.coming-soon-icon {
+  font-size: 4rem;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+}
+
+.coming-soon-container h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--accent);
+}
+
+.coming-soon-container p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  opacity: 0.8;
+}
+</style>
 
   <!-- Qualifications Section -->
   <section id="qualifications">
@@ -1295,39 +1814,218 @@
   </section>
 
   <!-- Skills Section -->
-  <section id="skills">
-    <div class="container">
-      <h2 class="section-title" data-aos="fade-up">Skills & Expertise</h2>
-      <div class="skills-container">
-        <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
-          <h3 class="skill-title">Frontend</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">HTML</span>
-            <span class="skill-tag">CSS</span>
-            <span class="skill-tag">JavaScript</span>
-            <span class="skill-tag">Tailwind CSS</span>
-          </div>
+<section id="skills">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">Skills & Expertise</h2>
+    <div class="skills-container">
+      <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
+        <h3 class="skill-title">Frontend</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">HTML</span>
+          <span class="skill-tag">CSS</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">Tailwind CSS</span>
+          <span class="skill-tag">Responsive Design</span>
         </div>
-        <div class="skill-category" data-aos="fade-up" data-aos-delay="300">
-          <h3 class="skill-title">Backend</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">OpenCV</span>
-            <span class="skill-tag">Tkinter</span>
-          </div>
+      </div>
+      <div class="skill-category" data-aos="fade-up" data-aos-delay="300">
+        <h3 class="skill-title">Backend</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">OpenCV</span>
+          <span class="skill-tag">Tkinter</span>
+          <span class="skill-tag">Flask</span>
         </div>
-        <div class="skill-category" data-aos="fade-up" data-aos-delay="400">
-          <h3 class="skill-title">Tools</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Git & GitHub</span>
-            <span class="skill-tag">WordPress</span>
-            <span class="skill-tag">VS Code</span>
-          </div>
+      </div>
+      <div class="skill-category" data-aos="fade-up" data-aos-delay="400">
+        <h3 class="skill-title">Tools</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Git & GitHub</span>
+          <span class="skill-tag">WordPress</span>
+          <span class="skill-tag">VS Code</span>
+          <span class="skill-tag">Figma</span>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+<style>
+  /* Skills Section */
+#skills {
+  background-color: var(--secondary);
+  color: white;
+}
 
+body.dark-mode #skills {
+  background-color: #0f172a;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center the cards horizontally */
+  gap: 2rem;
+  max-width: 1000px; /* Limit maximum width for better centering */
+  margin: 0 auto; /* Center the container */
+}
+
+.skill-category {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  flex: 1;
+  min-width: 280px; /* Minimum width for each card */
+  max-width: 320px; /* Maximum width for each card */
+  transition: var(--transition);
+}
+
+body.dark-mode .skill-category {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.skill-category:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.skill-title {
+  font-size: 1.5rem;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-family: 'Roboto Mono', monospace;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.skill-title:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.skill-tag {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: var(--transition);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .skill-tag {
+  background: #334155;
+  color: var(--light);
+}
+
+.skill-tag:hover {
+  background: var(--accent);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 101, 132, 0.3);
+}
+
+/* Responsive Design for Skills Section */
+@media (max-width: 1200px) {
+  .skills-container {
+    max-width: 900px;
+  }
+}
+
+@media (max-width: 992px) {
+  .skills-container {
+    max-width: 700px;
+  }
+  
+  .skill-category {
+    min-width: 250px;
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  .skills-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    max-width: 500px;
+  }
+  
+  .skill-category {
+    width: 100%;
+    max-width: 400px;
+    min-width: auto;
+  }
+  
+  .skill-tags {
+    gap: 0.6rem;
+  }
+  
+  .skill-tag {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .skills-container {
+    gap: 1rem;
+  }
+  
+  .skill-category {
+    padding: 1.5rem 1rem;
+    max-width: 100%;
+  }
+  
+  .skill-title {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .skill-tags {
+    gap: 0.5rem;
+  }
+  
+  .skill-tag {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .skill-category {
+    padding: 1.2rem 0.8rem;
+  }
+  
+  .skill-tags {
+    gap: 0.4rem;
+  }
+  
+  .skill-tag {
+    padding: 0.35rem 0.7rem;
+    font-size: 0.75rem;
+  }
+}
+</style>
   <!-- Contact Section -->
   <section id="contact">
     <div class="container contact-container">
@@ -1355,6 +2053,9 @@
         <a href="https://www.linkedin.com/in/iqbal-hingorjo-aab10536a" target="_blank" class="social-link">
           <i class="fab fa-linkedin-in"></i>
         </a>
+        <a href="#" class="social-link">
+          <i class="fab fa-twitter"></i>
+        </a>
       </div>
     </div>
   </section>
@@ -1373,6 +2074,11 @@
     AOS.init({
       duration: 800,
       once: true
+    });
+
+    // Show loading spinner on page load
+    window.addEventListener('load', function() {
+      document.getElementById('loadingSpinner').style.display = 'none';
     });
 
     // Navbar scroll effect
@@ -1419,16 +2125,143 @@
       document.body.classList.add('dark-mode');
       themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
     }
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Contact Modal
+    const heroContactBtn = document.getElementById("heroContactBtn");
+    const contactModal = document.getElementById("contactModal");
+    const closeModal = document.getElementById("closeModal");
+    const modalOverlay = document.querySelector('.modal-overlay');
+
+    // Open modal on hero button click
+    heroContactBtn.addEventListener("click", () => {
+      contactModal.style.display = "block";
+    });
+
+    // Close modal when clicking "x"
+    closeModal.addEventListener("click", () => {
+      contactModal.style.display = "none";
+    });
+
+    // Close modal when clicking overlay
+    modalOverlay.addEventListener("click", () => {
+      contactModal.style.display = "none";
+    });
+
+    // Close modal if user clicks outside the modal box
+    window.addEventListener("click", (e) => {
+      if (e.target === contactModal) {
+        contactModal.style.display = "none";
+      }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && contactModal.style.display === 'block') {
+        contactModal.style.display = 'none';
+      }
+    });
+
+    // Form submission
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Show loading spinner
+      document.getElementById('loadingSpinner').style.display = 'block';
+      
+      // Simulate form submission
+      setTimeout(function() {
+        document.getElementById('loadingSpinner').style.display = 'none';
+        alert('Thank you for your message! I will get back to you soon.');
+        contactModal.style.display = 'none';
+        document.getElementById('contactForm').reset();
+      }, 1500);
+    });
+
+    // Animate progress bars when in view
+    const progressBars = document.querySelectorAll('.progress');
+    
+    function animateProgressBars() {
+      progressBars.forEach(bar => {
+        const width = bar.getAttribute('data-width');
+        if (isElementInViewport(bar) && !bar.classList.contains('animated')) {
+          bar.style.width = width + '%';
+          bar.classList.add('animated');
+        }
+      });
+    }
+    
+    function isElementInViewport(el) {
+      const rect = el.getBoundingClientRect();
+      return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+      );
+    }
+    
+    // Check progress bars on scroll
+    window.addEventListener('scroll', animateProgressBars);
+    // Initial check
+    animateProgressBars();
+
+    // Animate stats counter
+    function animateValue(id, start, end, duration) {
+      const obj = document.getElementById(id);
+      let startTimestamp = null;
+      const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        const value = Math.floor(progress * (end - start) + start);
+        obj.innerHTML = value + (id === 'experienceCount' ? '+' : '');
+        if (progress < 1) {
+          window.requestAnimationFrame(step);
+        }
+      };
+      window.requestAnimationFrame(step);
+    }
+
+    // Start counter animation when stats section is in view
+    const statsSection = document.getElementById('stats');
+    let statsAnimated = false;
+
+    function checkStatsAnimation() {
+      if (isElementInViewport(statsSection) && !statsAnimated) {
+        animateValue('projectCount', 0, 5, 2000);
+        animateValue('clientCount', 0, 5, 2000);
+        animateValue('experienceCount', 0, 2, 2000);
+        animateValue('certificateCount', 0, 5, 2000);
+        statsAnimated = true;
+      }
+    }
+
+    window.addEventListener('scroll', checkStatsAnimation);
+    // Initial check
+    checkStatsAnimation();
+
+    // PWA Service Worker Registration
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js').then(function(registration) {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, function(err) {
+          console.log('ServiceWorker registration failed: ', err);
+        });
+      });
+    }
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-

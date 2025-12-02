@@ -344,6 +344,259 @@
       flex-wrap: wrap;
     }
 
+    /* University Projects Section Styles */
+    #university-projects {
+      background-color: var(--light);
+    }
+
+    body.dark-mode #university-projects {
+      background-color: var(--dark);
+    }
+
+    .uni-projects-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .uni-semester {
+      margin-bottom: 4rem;
+      background: white;
+      border-radius: 15px;
+      padding: 2.5rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      transition: var(--transition);
+    }
+
+    body.dark-mode .uni-semester {
+      background: #1e293b;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .uni-semester:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .semester-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--primary);
+    }
+
+    .semester-icon {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-right: 1.5rem;
+      width: 70px;
+      height: 70px;
+      background: rgba(108, 99, 255, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .semester-title {
+      font-size: 1.8rem;
+      color: var(--primary);
+      font-family: 'Roboto Mono', monospace;
+    }
+
+    .semester-subtitle {
+      color: var(--gray);
+      font-size: 1rem;
+    }
+
+    body.dark-mode .semester-subtitle {
+      color: var(--light-gray);
+    }
+
+    .uni-project-card {
+      background: rgba(108, 99, 255, 0.05);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      border-left: 4px solid var(--primary);
+      transition: var(--transition);
+    }
+
+    body.dark-mode .uni-project-card {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .uni-project-card:hover {
+      transform: translateX(10px);
+      background: rgba(108, 99, 255, 0.1);
+    }
+
+    .uni-project-title {
+      font-size: 1.4rem;
+      color: var(--primary-dark);
+      margin-bottom: 0.5rem;
+      font-family: 'Roboto Mono', monospace;
+    }
+
+    body.dark-mode .uni-project-title {
+      color: var(--primary);
+    }
+
+    .uni-project-description {
+      color: var(--gray);
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+
+    body.dark-mode .uni-project-description {
+      color: var(--light-gray);
+    }
+
+    .project-tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .tech-tag {
+      background: rgba(108, 99, 255, 0.1);
+      color: var(--primary);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    body.dark-mode .tech-tag {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--light);
+    }
+
+    .tech-tag i {
+      font-size: 1rem;
+    }
+
+    .project-features {
+      margin-bottom: 1.5rem;
+    }
+
+    .features-title {
+      font-size: 1.1rem;
+      color: var(--primary);
+      margin-bottom: 0.8rem;
+      font-family: 'Roboto Mono', monospace;
+    }
+
+    .features-list {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .features-list li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--gray);
+    }
+
+    body.dark-mode .features-list li {
+      color: var(--light-gray);
+    }
+
+    .features-list li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-weight: bold;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .project-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1.5rem;
+      background: var(--primary);
+      color: white;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .project-link-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
+    }
+
+    .project-link-btn.outline {
+      background: transparent;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+    }
+
+    .project-link-btn.outline:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* Responsive styles for university projects */
+    @media (max-width: 768px) {
+      .uni-semester {
+        padding: 1.5rem;
+      }
+      
+      .semester-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+      }
+      
+      .semester-icon {
+        margin-right: 0;
+      }
+      
+      .uni-project-card {
+        padding: 1.5rem;
+      }
+      
+      .project-links {
+        flex-direction: column;
+      }
+      
+      .project-link-btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .semester-title {
+        font-size: 1.5rem;
+      }
+      
+      .uni-project-title {
+        font-size: 1.2rem;
+      }
+      
+      .tech-tag {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+      }
+    }
+
     /* About Section */
     #about {
       background-color: var(--light);
@@ -1415,6 +1668,7 @@
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#university-projects">University Projects</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#qualifications">Education</a></li>
@@ -1649,6 +1903,164 @@
             
             <a href="https://hingorjo.github.io/Project/" target="_blank" class="project-link">
               View Project <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- University Projects Section -->
+  <section id="university-projects">
+    <div class="container uni-projects-container">
+      <h2 class="section-title" data-aos="fade-up">University Projects</h2>
+      <p class="text-center about-text" data-aos="fade-up" data-aos-delay="100">
+        A showcase of academic projects completed during different semesters of my Computer Science degree.
+      </p>
+      
+      <!-- 2nd Year 2nd Semester -->
+      <div class="uni-semester" data-aos="fade-up" data-aos-delay="200">
+        <div class="semester-header">
+          <div class="semester-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <div>
+            <h3 class="semester-title">2nd Year - 2nd Semester</h3>
+            <p class="semester-subtitle">Computer Science Fundamentals & Web Development</p>
+          </div>
+        </div>
+        
+        <div class="uni-project-card">
+          <h4 class="uni-project-title">Assembler Compiler Web Application</h4>
+          <p class="uni-project-description">
+            Developed a web-based assembler compiler that translates assembly language code into machine code directly in the browser. 
+            The application features real-time syntax highlighting, error detection, and step-by-step execution visualization.
+          </p>
+          
+          <div class="project-tech-stack">
+            <span class="tech-tag"><i class="fab fa-html5"></i> HTML5</span>
+            <span class="tech-tag"><i class="fab fa-css3-alt"></i> CSS3</span>
+            <span class="tech-tag"><i class="fab fa-js"></i> JavaScript</span>
+            <span class="tech-tag"><i class="fas fa-cogs"></i> WebAssembly</span>
+          </div>
+          
+          <div class="project-features">
+            <h5 class="features-title">Key Features:</h5>
+            <ul class="features-list">
+              <li>Real-time assembly code compilation and execution</li>
+              <li>Syntax highlighting with error detection</li>
+              <li>Interactive debugging interface</li>
+              <li>Step-by-step execution visualization</li>
+              <li>Support for multiple assembly language dialects</li>
+            </ul>
+          </div>
+          
+          <div class="project-links">
+            <a href="#" class="project-link-btn">
+              <i class="fab fa-github"></i> View Source Code
+            </a>
+            <a href="#" class="project-link-btn outline">
+              <i class="fas fa-external-link-alt"></i> Live Demo
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 3rd Year 1st Semester -->
+      <div class="uni-semester" data-aos="fade-up" data-aos-delay="300">
+        <div class="semester-header">
+          <div class="semester-icon">
+            <i class="fas fa-futbol"></i>
+          </div>
+          <div>
+            <h3 class="semester-title">3rd Year - 1st Semester</h3>
+            <p class="semester-subtitle">Advanced Web Development & Database Systems</p>
+          </div>
+        </div>
+        
+        <div class="uni-project-card">
+          <h4 class="uni-project-title">Soccer Players Performance Tracker Website</h4>
+          <p class="uni-project-description">
+            Created a comprehensive soccer website where users can track player statistics, match scores, and performance metrics. 
+            Features include live match updates, player profiles, team statistics, and interactive dashboards for sports analytics.
+          </p>
+          
+          <div class="project-tech-stack">
+            <span class="tech-tag"><i class="fab fa-html5"></i> HTML5</span>
+            <span class="tech-tag"><i class="fab fa-css3-alt"></i> CSS3</span>
+            <span class="tech-tag"><i class="fab fa-js"></i> JavaScript</span>
+            <span class="tech-tag"><i class="fas fa-database"></i> REST API</span>
+            <span class="tech-tag"><i class="fas fa-chart-line"></i> JSON</span>
+          </div>
+          
+          <div class="project-features">
+            <h5 class="features-title">Key Features:</h5>
+            <ul class="features-list">
+              <li>Real-time match score updates and live commentary</li>
+              <li>Comprehensive player performance analytics and statistics</li>
+              <li>Interactive player galleries with detailed profiles</li>
+              <li>Team and league statistics with visual charts</li>
+              <li>User authentication and personalized dashboards</li>
+              <li>Responsive design for mobile and desktop devices</li>
+            </ul>
+          </div>
+          
+          <div class="project-links">
+            <a href="#" class="project-link-btn">
+              <i class="fab fa-github"></i> View Source Code
+            </a>
+            <a href="#" class="project-link-btn outline">
+              <i class="fas fa-external-link-alt"></i> Live Demo
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 3rd Year 2nd Semester -->
+      <div class="uni-semester" data-aos="fade-up" data-aos-delay="400">
+        <div class="semester-header">
+          <div class="semester-icon">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <div>
+            <h3 class="semester-title">3rd Year - 2nd Semester</h3>
+            <p class="semester-subtitle">Mobile Application Development</p>
+          </div>
+        </div>
+        
+        <div class="uni-project-card">
+          <h4 class="uni-project-title">Android Calculator Application</h4>
+          <p class="uni-project-description">
+            Developed a feature-rich calculator application for Android devices with advanced mathematical functions and an intuitive user interface. 
+            The app includes standard and scientific calculator modes, history tracking, and memory functions.
+          </p>
+          
+          <div class="project-tech-stack">
+            <span class="tech-tag"><i class="fab fa-android"></i> Android Studio</span>
+            <span class="tech-tag"><i class="fab fa-java"></i> Java</span>
+            <span class="tech-tag"><i class="fas fa-code"></i> XML</span>
+            <span class="tech-tag"><i class="fas fa-paint-brush"></i> Material Design</span>
+          </div>
+          
+          <div class="project-features">
+            <h5 class="features-title">Key Features:</h5>
+            <ul class="features-list">
+              <li>Standard and scientific calculator modes with toggle</li>
+              <li>History tracking with recall and clear functions</li>
+              <li>Memory functions (M+, M-, MR, MC)</li>
+              <li>Dark/Light theme support with automatic switching</li>
+              <li>Responsive touch interface with haptic feedback</li>
+              <li>Advanced mathematical functions (trigonometry, logarithms, etc.)</li>
+              <li>Currency and unit conversion capabilities</li>
+            </ul>
+          </div>
+          
+          <div class="project-links">
+            <a href="#" class="project-link-btn">
+              <i class="fab fa-github"></i> View Source Code
+            </a>
+            <a href="#" class="project-link-btn outline">
+              <i class="fab fa-google-play"></i> Play Store
             </a>
           </div>
         </div>
